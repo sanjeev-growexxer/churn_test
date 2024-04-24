@@ -18,6 +18,7 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.metrics import precision_recall_curve
 from sklearn.linear_model import LogisticRegression
+import boto3
 
 import pickle
 
@@ -43,3 +44,14 @@ print("Cross Validation Score : ",'{0:.2%}'.format(cross_val_score(classifier,x_
 print("ROC_AUC Score : ",'{0:.2%}'.format(roc_auc_score(y_test1,prediction)))
 with open('model.pkl', 'wb') as f:
     pickle.dump(classifier, f)
+    
+
+s3 = boto3.client('s3')
+file = "model.pkl"
+bucket = "sanjeev-churn-pred-test"
+s3_key = "model.pkl"
+
+try:
+    s3.upload_file(file, bucket, s3_key)
+except Exception as e:
+    print(e)

@@ -16,5 +16,7 @@ COPY creditcard.csv .
 # Copy the churn_test.py script into the container at /app
 COPY churn_test.py .
 
+EXPOSE 80
+
 # Run the churn_test.py script when the container starts
 CMD ["python", "churn_test.py"]
