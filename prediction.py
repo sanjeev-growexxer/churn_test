@@ -11,7 +11,7 @@ test_data['Class']=preds
 test_data.to_csv('predicted_data.csv')
 s3 = boto3.client('s3')
 file = "predicted_data.csv"
-bucket = "sanjeev-test-deploy"
+bucket = "sanjeev-churn-pred-test"
 s3_key = "predicted_data.csv"
 
 try:
