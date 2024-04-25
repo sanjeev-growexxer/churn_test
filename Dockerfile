@@ -11,12 +11,13 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the credit card.csv file into the container at /app
-COPY creditcard.csv .
+COPY prediction_data.csv .
+COPY model.pkl .
 
 # Copy the churn_test.py script into the container at /app
-COPY churn_test.py .
+COPY prediction.py .
 
 EXPOSE 80
 
 # Run the churn_test.py script when the container starts
-CMD ["python", "churn_test.py"]
+CMD ["python", "prediction.py"]
