@@ -18,3 +18,4 @@ try:
     s3.upload_file(file, bucket, s3_key)
 except Exception as e:
     print(e)
+print("predicitons are :",test_data)
