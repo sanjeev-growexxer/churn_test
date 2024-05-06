@@ -439,7 +439,7 @@ with open('model_srikanth.pkl', 'wb') as f:
 
 s3 = boto3.client('s3')
 file = "model_srikanth.pkl"
-bucket = "sanjeev-churn-pred-test"
+bucket = "srikanth-code"
 s3_key = "model_srikanth.pkl"
 
 try:
